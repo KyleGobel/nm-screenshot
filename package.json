@@ -1,16 +1,25 @@
 {
-	"name" : "nm-screenshot",
-	"version" : "0.0.1",
-	"author" : "Kyle Gobel",
-	"keywords" : [
-		"nm-screenshot"
-	],
-	"description" : "take screenshots from cmd line using nightmare and output the url",
-	"repository": {
-		"type" : "git",
-		"url" : "https://github.com/KyleGobel/nm-screenshot.git"
-	},
-	"dependencies" : {
-		"nightmare" : "~1.6.5"
-	}
+  "name": "nm-screenshot",
+  "version": "0.0.1",
+  "author": "Kyle Gobel",
+  "keywords": [
+    "nm-screenshot"
+  ],
+  "description": "take screenshots from cmd line using nightmare and output the url",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KyleGobel/nm-screenshot.git"
+  },
+  "dependencies": {
+    "nightmare": "~1.6.5"
+  },
+  "bugs": {
+    "url": "https://github.com/KyleGobel/nm-screenshot/issues"
+  },
+  "homepage": "https://github.com/KyleGobel/nm-screenshot",
+  "main": "src/screenshotter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
 }
