@@ -13,8 +13,8 @@ npm install nightmare --python=C:\python27\python.exe --msvs_version=2013
 then run
 
 ```
-node screenshotter.js http://play.google.com googlePlay.png
+node screenshotter.js http://play.google.com
 
 #output should be something like
-> { "url" : "https://play.google.com/store" }
+> { "filename" : "54a8e98e.png", "url" : "https://play.google.com/store" }
 ```
