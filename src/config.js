@@ -7,6 +7,7 @@ config.redis = {
 	password: '<redis_password>'
 };
 
+config.port = 33936;
 config.imageSavePath = '/images/';
 config.prefixImageKey = 'urn:image:';
 
