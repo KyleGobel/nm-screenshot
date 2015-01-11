@@ -10,6 +10,13 @@ if (config.redis.authRequired) {
 }
 
 app.use(bodyParser.json());
+app.use(function(req, res, next) {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+	res.setHeader('Access-Control-Allow-Headers', '*');
+
+	next();
+});
 
 app.post('/', function(req,res){
 	screenshotter.getScreenshot(req.body.url,client, function(rv) {
