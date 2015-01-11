@@ -1,13 +1,13 @@
-var Nightmare = require('nightmare');
+var Nightmare = require('nightmare'),
+	config = require('./config');
 
 exports.getScreenshot = getScreenshot;
 
-function getScreenshot(uri,baseSavePath, callback) {
+function getScreenshot(uri, redisClient, callback) {
 	function noop() {}
 	var endUrl = '',
-		basePath = baseSavePath,
 		imageKey = Math.floor(Date.now() / 1000).toString(16),
-		filename =  basePath + imageKey + '.png'; 
+		filename =  config.imageSavePath + imageKey + '.png'; 
 
 	new Nightmare()
 		.viewport(1080, 1920)
@@ -28,6 +28,7 @@ function getScreenshot(uri,baseSavePath, callback) {
 				url : endUrl,
 				imageKey: imageKey
 			};
+			redisClient.set(config.prefixImageKey + imageKey, filename);
 			callback(returnValue);
 		});
 }

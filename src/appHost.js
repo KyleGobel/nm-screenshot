@@ -1,21 +1,35 @@
-var app = require('express')();
-var screenshotter = require('./screenshotter.js');
-var bodyParser = require('body-parser');
+var app = require('express')(),
+	config = require('./config'),
+	bodyParser = require('body-parser'),
+	screenshotter = require('./screenshotter.js'),
+	redis = require('redis'),
+	client = redis.createClient(config.redis.port, config.redis.address, {});
 
-var baseSavePath = '/photos/'
+if (config.redis.authRequired) {
+	client.auth(redis.config.redis.password, function() {});
+}
 
 app.use(bodyParser.json());
 
 app.post('/', function(req,res){
-	screenshotter.getScreenshot(req.body.url,baseSavePath, function(rv) {
+	screenshotter.getScreenshot(req.body.url,client, function(rv) {
 		res.json(rv);
 	});
 });
 
 app.get('/image', function(req,res) {
 	var imageKey = req.query.key;
-	
-	res.sendFile(baseSavePath + imageKey + '.png');
+
+	client.get(config.prefixImageKey + imageKey, function(err, reply){
+		if (reply !== null)	{
+			res.sendFile(reply);
+		}
+		else
+		{
+			res.send("No such key found");
+		}
+	});
+
 });
 
 var server = app.listen(80, function() {
