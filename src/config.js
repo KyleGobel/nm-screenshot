@@ -9,3 +9,6 @@ config.redis = {
 
 config.imageSavePath = '/images/';
 config.prefixImageKey = 'urn:image:';
+
+
+module.exports = config;
