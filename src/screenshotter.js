@@ -2,10 +2,12 @@ var Nightmare = require('nightmare');
 
 exports.getScreenshot = getScreenshot;
 
-function getScreenshot(uri, callback) {
+function getScreenshot(uri,baseSavePath, callback) {
 	function noop() {}
 	var endUrl = '',
-		filename =  Math.floor(Date.now() / 1000).toString(16) + '.png'; 
+		basePath = baseSavePath,
+		imageKey = Math.floor(Date.now() / 1000).toString(16),
+		filename =  basePath + imageKey + '.png'; 
 
 	new Nightmare()
 		.viewport(1080, 1920)
@@ -24,7 +26,7 @@ function getScreenshot(uri, callback) {
 		.run(function() {
 			var returnValue = { 
 				url : endUrl,
-				filename: filename
+				imageKey: imageKey
 			};
 			callback(returnValue);
 		});
