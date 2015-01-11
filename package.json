@@ -1,0 +1,24 @@
+{
+  "name": "nm-screenshot",
+  "version": "1.0.0",
+  "description": "nm-screenshot\r =============",
+  "main": "appHost.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KyleGobel/nm-screenshot.git"
+  },
+  "author": "Kyle Gobel <kgobel@gmail.com> (https://github.com/KyleGobel)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KyleGobel/nm-screenshot/issues"
+  },
+  "homepage": "https://github.com/KyleGobel/nm-screenshot",
+  "dependencies": {
+    "express": "^4.10.7",
+    "nightmare": "^1.6.5",
+    "redis": "^0.12.1"
+  }
+}
