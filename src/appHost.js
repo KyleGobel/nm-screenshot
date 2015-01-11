@@ -6,7 +6,7 @@ var app = require('express')(),
 	client = redis.createClient(config.redis.port, config.redis.address, {});
 
 if (config.redis.authRequired) {
-	client.auth(redis.config.redis.password, function() {});
+	client.auth(config.redis.password, function() {});
 }
 
 app.use(bodyParser.json());
