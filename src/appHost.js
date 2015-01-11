@@ -32,6 +32,6 @@ app.get('/image', function(req,res) {
 
 });
 
-var server = app.listen(80, function() {
-	console.log("Listening on 80");
+var server = app.listen(config.port, function() {
+	console.log("Listening on " + config.port);
 });
