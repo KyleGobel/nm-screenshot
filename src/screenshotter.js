@@ -2,7 +2,7 @@ var Nightmare = require('nightmare');
 
 exports.getScreenshot = getScreenshot;
 
-function getScreenshot(var uri, callback) {
+function getScreenshot(uri, callback) {
 	function noop() {}
 	var endUrl = '',
 		filename =  Math.floor(Date.now() / 1000).toString(16) + '.png'; 
