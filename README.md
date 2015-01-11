@@ -9,6 +9,7 @@ small utility used by diff program to take screenshots and output some info I ne
 ```
 #for me on windows 8.1, on ubuntu you can just install phantom first then standard npm install nightmare
 npm install nightmare --python=C:\python27\python.exe --msvs_version=2013
+npm install
 sudo node src/appHost.js 
 ```
 
