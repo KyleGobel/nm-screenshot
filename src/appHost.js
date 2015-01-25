@@ -5,6 +5,7 @@ var app = require('express')(),
 	redis = require('redis'),
 	client = redis.createClient(config.redis.port, config.redis.address, {});
 
+
 if (config.redis.authRequired) {
 	client.auth(config.redis.password, function() {});
 }
@@ -20,6 +21,7 @@ app.use(function(req, res, next) {
 
 app.post('/', function(req,res){
 	screenshotter.getScreenshot(req.body.url,client, function(rv) {
+		screenshotter.cropImage(rv.imageKey, 1080, 800);
 		res.json(rv);
 	});
 });

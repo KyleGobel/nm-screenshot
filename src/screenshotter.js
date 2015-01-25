@@ -1,7 +1,10 @@
 var Nightmare = require('nightmare'),
-	config = require('./config');
+	config = require('./config'),
+	gm = require('gm').subClass({ imageMagick: true });
+
 
 exports.getScreenshot = getScreenshot;
+exports.cropImage = cropImage;
 
 function getScreenshot(uri, redisClient, callback) {
 	function noop() {}
@@ -32,6 +35,14 @@ function getScreenshot(uri, redisClient, callback) {
 			callback(returnValue);
 		});
 }
+
+function cropImage(imageKey, width, height) {
+	var filename = config.imageSavePath + imageKey + '.png'; 
+	gm(filename)
+		.crop(width,height, 0, 0)
+		.write(filename, function(err) {});
+}
+
 
 
 

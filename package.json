@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/KyleGobel/nm-screenshot",
   "dependencies": {
+    "body-parser": "^1.10.2",
     "express": "^4.10.7",
+    "gm": "^1.17.0",
     "nightmare": "^1.6.5",
     "redis": "^0.12.1"
   }

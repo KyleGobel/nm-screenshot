@@ -2,9 +2,9 @@ var config = {};
 
 config.redis = {
 	port: 6379,
-	address: '<redis_address>',
+	address: 'redis.metroeguide.com',
 	authRequired : true,
-	password: '<redis_password>'
+	password: 'Mad15onmetr0'
 };
 
 config.port = 33936;

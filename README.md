@@ -12,7 +12,11 @@ npm install nightmare --python=C:\python27\python.exe --msvs_version=2013
 npm install
 sudo node src/appHost.js 
 ```
+for resizing install imagemagick with apt-get, or download binaries for windows (google it)
 
+```
+sudo apt-get install imagemagick
+```
 
 ##Better install
 On linux, clone and run npm install (might have to install phantomjs first to get nightmare working)
